@@ -88,23 +88,23 @@ PAGE = r"""
       cursor:zoom-in; transition:transform .2s, border-color .2s;
     }
     .gallery img:hover { transform:scale(1.03); border-color:#45d7e8a0; }
-
- /* >>> EDITAR: aspeto do botão "Voltar ao início" */
-.btn-voltar {
-  display:flex; margin:28px auto 0; cursor:pointer;
-  border:1px solid var(--line); border-radius:999px; padding:12px 22px;
-  background:rgba(16,40,58,.94); color:var(--text);
-  font:inherit; font-weight:750; transition:background .2s, border-color .2s, transform .2s;
-}
-
-.btn-voltar:hover { transform:translateY(-2px); border-color:#45d7e8a0; }
-.btn-voltar:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
+ 
+    /* >>> EDITAR: aspeto do botão "Voltar ao início" */
+    .btn-voltar {
+      display:flex; margin:28px auto 0; cursor:pointer;
+      border:1px solid var(--line); border-radius:999px; padding:12px 22px;
+      background:rgba(16,40,58,.94); color:var(--text);
+      font:inherit; font-weight:750; transition:background .2s, border-color .2s, transform .2s;
+    }
+    .btn-voltar:hover { transform:translateY(-2px); border-color:#45d7e8a0; }
+    .btn-voltar:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
+ 
     /* Imagem inicial (antes de clicar em qualquer rota) */
     .inicial-img {
-  display:block; width:100%; max-height:70vh; object-fit:contain;
-  margin:0 auto;
-  border-radius:16px; border:1px solid var(--line); background:var(--panel2);
-}
+      display:block; width:100%; max-height:70vh; object-fit:contain;
+      margin:0 auto;
+      border-radius:16px; border:1px solid var(--line); background:var(--panel2);
+    }
  
     /* Ampliar foto */
     .lightbox { position:fixed; inset:0; z-index:50; display:none; place-items:center; padding:20px; background:rgba(3,10,17,.92); cursor:zoom-out; }
@@ -115,10 +115,17 @@ PAGE = r"""
     .footer-inner { width:min(1120px,100%); margin:auto; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:.92rem; }
     footer a { color:var(--text); text-decoration:none; } footer a:hover { color:var(--cyan); }
     .footer-brand { font-weight:900; color:var(--text); letter-spacing:-.04em; }
+ 
+    /* ===== TELEMÓVEL (ecrãs até 720px de largura) ===== */
     @media (max-width:720px) {
-      .hero { min-height:450px; background-position:center,center,62% center; }
+      /* >>> EDITAR: min-height:0 deixa o topo ter só a altura do conteúdo (antes era 450px) */
+      .hero { min-height:0; background-position:center,center,62% center; }
       .topbar { padding:17px 20px; } .topnote { display:none; }
-      .hero-content { padding:130px 22px 75px; }
+      /* >>> EDITAR: padding: CIMA  LADOS  BAIXO
+           CIMA  = espaço entre o cabeçalho (Riders.) e a frase "8 motas. Mil aventuras."
+           BAIXO = espaço entre o texto "...amigos." e os botões das rotas
+           Para menos espaço, baixa os números; para mais, sobe-os. */
+      .hero-content { padding:84px 22px 36px; }
       nav { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:-22px; gap:8px; }
       .nav-btn { padding:14px 8px; font-size:.92rem; }
       .nav-btn:last-child { grid-column:1 / -1; }
@@ -147,9 +154,9 @@ PAGE = r"""
       <h1>8 <em>motas.</em> Mil <em>aventuras.</em></h1>
       <!-- >>> EDITAR: texto de apresentação. O que estiver dentro de <span class="nowrap"> fica sempre na mesma linha -->
       <p class="intro"> <span> Estradas incríveis, paisagens sem fim e histórias para partilhar entre amigos.</span></p>
-      
+ 
       <!-- <a class="cta" href="#rotas" id="explore">As nossas rotas <span aria-hidden="true">→</span></a> -->
-      
+ 
     </div>
   </header>
  
@@ -248,16 +255,16 @@ PAGE = r"""
       panel.appendChild(inner);
     }
  
-     // Volta ao estado inicial, como se o site tivesse acabado de abrir
-function voltarInicio() {
-  buttons.forEach(item => {
-    item.classList.remove("active");
-    item.setAttribute("aria-pressed", "false");
-  });
-  mostrarInicial();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
+    // Volta ao estado inicial, como se o site tivesse acabado de abrir
+    function voltarInicio() {
+      buttons.forEach(item => {
+        item.classList.remove("active");
+        item.setAttribute("aria-pressed", "false");
+      });
+      mostrarInicial();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+ 
     function mostrar(secao) {
       const c = CONTEUDO[secao] || CONTEUDO["padrao"];
       sectionTitle.textContent = TITULOS[secao] || secao;
@@ -292,14 +299,14 @@ function voltarInicio() {
       });
  
       // >>> EDITAR: texto do botão que volta ao início
-const voltar = document.createElement("button");
-voltar.type = "button";
-voltar.className = "btn-voltar";
-voltar.textContent = "← Voltar ao início";
-voltar.addEventListener("click", voltarInicio);
-
-inner.append(h3, p, ul, voltar);
-
+      const voltar = document.createElement("button");
+      voltar.type = "button";
+      voltar.className = "btn-voltar";
+      voltar.textContent = "← Voltar ao início";
+      voltar.addEventListener("click", voltarInicio);
+ 
+      inner.append(h3, p, ul, voltar);
+ 
       panel.appendChild(inner);
     }
  
