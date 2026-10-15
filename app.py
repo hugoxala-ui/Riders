@@ -132,7 +132,7 @@ PAGE = r"""
     </div>
     <div class="hero-content">
       <!-- >>> EDITAR: texto pequeno por cima do título -->
-      <div class="eyebrow">A liberdade .....</div>
+      <!--<div class="eyebrow">A liberdade .....</div>-->
       <!-- >>> EDITAR: título principal (a palavra dentro de <em> fica a azul) -->
       <h1>7 motas. Mil <em>aventuras.</em></h1>
       <!-- >>> EDITAR: texto de apresentação. O que estiver dentro de <span class="nowrap"> fica sempre na mesma linha -->
