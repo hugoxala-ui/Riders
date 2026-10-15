@@ -94,9 +94,9 @@ PAGE = r"""
     </div>
     <div class="hero-content">
       <div class="eyebrow">A liberdade começa aqui</div>
-      <h1>Uma mota.<br>Mil <em>aventuras.</em></h1>
-      <p class="intro">Estradas incríveis, paisagens de montanha e boas histórias para partilhar entre amigos. Escolhe o próximo destino.</p>
-      <a class="cta" href="#rotas" id="explore">Explorar as rotas <span aria-hidden="true">→</span></a>
+      <h1>/7 motas.<br>Mil <em>aventuras.</em></h1>
+      <p class="intro">Estradas incríveis, paisagens de montanha e boas histórias para partilhar entre amigos.</p>
+      <a class="cta" href="#rotas" id="explore">As nossas rotas <span aria-hidden="true">→</span></a>
     </div>
   </header>
 
@@ -111,8 +111,7 @@ PAGE = r"""
   <main>
     <div class="section-head">
       <h2 id="section-title">A próxima aventura</h2>
-      <p>Escolhe um menu para explorar.</p>
-    </div>
+      </div>
     <section class="content-panel" aria-live="polite">
       <div class="content-inner">
         <div class="content-icon" id="section-icon" aria-hidden="true">⌁</div>
