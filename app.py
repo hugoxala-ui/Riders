@@ -147,7 +147,9 @@ PAGE = r"""
       <h1>8 <em>motas.</em> Mil <em>aventuras.</em></h1>
       <!-- >>> EDITAR: texto de apresentação. O que estiver dentro de <span class="nowrap"> fica sempre na mesma linha -->
       <p class="intro"> <span> Estradas incríveis, paisagens sem fim e histórias para partilhar entre amigos.</span></p>
-      <a class="cta" href="#rotas" id="explore">As nossas rotas <span aria-hidden="true">→</span></a>
+      
+      <!-- <a class="cta" href="#rotas" id="explore">As nossas rotas <span aria-hidden="true">→</span></a> -->
+      
     </div>
   </header>
  
