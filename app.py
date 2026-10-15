@@ -31,18 +31,20 @@ PAGE = r"""
       min-height: 440px; position: relative; display: flex; align-items: center;
       overflow: hidden; isolation: isolate;
       background-image:
-        linear-gradient(90deg, rgba(3,13,23,.82) 0%, rgba(3,13,23,.42) 52%, rgba(3,13,23,.18) 100%),
-        linear-gradient(0deg, rgba(7,21,34,.78), transparent 50%),
+  linear-gradient(90deg, rgba(3,13,23,.45) 0%, rgba(3,13,23,.15) 52%, rgba(3,13,23,0) 100%),
+  linear-gradient(0deg, rgba(7,21,34,.35), transparent 50%),
+
         /* >>> EDITAR: link da imagem de fundo do topo (só mudas o endereço dentro de url("...")) */
-        url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=2000&q=85");
-      background-position: center, center, center 54%; background-size: cover;
+
+        url("/static/fotos/4.jpg");
+
+      background-position: center, center, center 50%; background-size: cover;
     }
     .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,var(--bg),transparent 24%); z-index:-1; }
     .topbar {
-      position: absolute; top: 0; left: 0; right: 0; padding: 20px clamp(20px, 6vw, 84px);
-      display:flex; justify-content:space-between; align-items:center; gap:20px;
-      border-bottom: 1px solid rgba(255,255,255,.12); background:rgba(3,14,24,.28); backdrop-filter:blur(8px);
-    }
+  position: absolute; top: 0; left: 0; right: 0; padding: 20px clamp(20px, 6vw, 84px);
+  display:flex; justify-content:space-between; align-items:center; gap:20px;
+}
     .brand { font-size: clamp(1.7rem, 4vw, 2.35rem); font-weight: 900; letter-spacing:-.06em; font-style:italic; text-decoration:none; }
     .brand span { color:var(--cyan); }
     .topnote { color:#d8e6ef; font-size:.9rem; letter-spacing:.13em; text-transform:uppercase; }
@@ -125,7 +127,7 @@ PAGE = r"""
            CIMA  = espaço entre o cabeçalho (Riders.) e a frase "8 motas. Mil aventuras."
            BAIXO = espaço entre o texto "...amigos." e os botões das rotas
            Para menos espaço, baixa os números; para mais, sobe-os. */
-      .hero-content { padding:100px 22px 45px; }
+      .hero-content { padding:95px 22px 45px; }
       nav { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:-22px; gap:8px; }
       .nav-btn { padding:14px 8px; font-size:.92rem; }
       .nav-btn:last-child { grid-column:1 / -1; }
