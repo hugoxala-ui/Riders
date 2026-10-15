@@ -125,7 +125,7 @@ PAGE = r"""
            CIMA  = espaço entre o cabeçalho (Riders.) e a frase "8 motas. Mil aventuras."
            BAIXO = espaço entre o texto "...amigos." e os botões das rotas
            Para menos espaço, baixa os números; para mais, sobe-os. */
-      .hero-content { padding:84px 22px 36px; }
+      .hero-content { padding:100px 22px 45px; }
       nav { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:-22px; gap:8px; }
       .nav-btn { padding:14px 8px; font-size:.92rem; }
       .nav-btn:last-child { grid-column:1 / -1; }
