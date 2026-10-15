@@ -88,7 +88,17 @@ PAGE = r"""
       cursor:zoom-in; transition:transform .2s, border-color .2s;
     }
     .gallery img:hover { transform:scale(1.03); border-color:#45d7e8a0; }
- 
+
+ /* >>> EDITAR: aspeto do botão "Voltar ao início" */
+.btn-voltar {
+  display:flex; margin:28px auto 0; cursor:pointer;
+  border:1px solid var(--line); border-radius:999px; padding:12px 22px;
+  background:rgba(16,40,58,.94); color:var(--text);
+  font:inherit; font-weight:750; transition:background .2s, border-color .2s, transform .2s;
+}
+
+.btn-voltar:hover { transform:translateY(-2px); border-color:#45d7e8a0; }
+.btn-voltar:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
     /* Imagem inicial (antes de clicar em qualquer rota) */
     .inicial-img {
   display:block; width:100%; max-height:70vh; object-fit:contain;
@@ -134,7 +144,7 @@ PAGE = r"""
       <!-- >>> EDITAR: texto pequeno por cima do título -->
       <!--<div class="eyebrow">A liberdade .....</div>-->
       <!-- >>> EDITAR: título principal (a palavra dentro de <em> fica a azul) -->
-      <h1>7 motas. Mil <em>aventuras.</em></h1>
+      <h1>8 <em>motas.</em> Mil <em>aventuras.</em></h1>
       <!-- >>> EDITAR: texto de apresentação. O que estiver dentro de <span class="nowrap"> fica sempre na mesma linha -->
       <p class="intro"> <span> Estradas incríveis, paisagens sem fim e histórias para partilhar entre amigos.</span></p>
       <a class="cta" href="#rotas" id="explore">As nossas rotas <span aria-hidden="true">→</span></a>
@@ -236,6 +246,16 @@ PAGE = r"""
       panel.appendChild(inner);
     }
  
+     // Volta ao estado inicial, como se o site tivesse acabado de abrir
+function voltarInicio() {
+  buttons.forEach(item => {
+    item.classList.remove("active");
+    item.setAttribute("aria-pressed", "false");
+  });
+  mostrarInicial();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
     function mostrar(secao) {
       const c = CONTEUDO[secao] || CONTEUDO["padrao"];
       sectionTitle.textContent = TITULOS[secao] || secao;
@@ -269,7 +289,15 @@ PAGE = r"""
         ul.appendChild(li);
       });
  
-      inner.append(h3, p, ul);
+      // >>> EDITAR: texto do botão que volta ao início
+const voltar = document.createElement("button");
+voltar.type = "button";
+voltar.className = "btn-voltar";
+voltar.textContent = "← Voltar ao início";
+voltar.addEventListener("click", voltarInicio);
+
+inner.append(h3, p, ul, voltar);
+
       panel.appendChild(inner);
     }
  
@@ -307,4 +335,3 @@ def home():
 if __name__ == "__main__":
     # Acessível na rede local; para partilhar com amigos fora de casa, publica o site online.
     app.run(host="0.0.0.0", port=5000, debug=True)
- 
